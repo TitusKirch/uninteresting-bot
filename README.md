@@ -3,7 +3,7 @@
     <a href="https://github.com/uninterestingDev/uninteresting-bot/blob/master/LICENSE"><img src="https://img.shields.io/github/license/uninterestingDev/uninteresting-bot" alt="License"></a>
     <a href="https://github.com/uninterestingDev/uninteresting-bot/releases"><img src="https://img.shields.io/github/downloads/uninterestingDev/uninteresting-bot/total" alt="Downloads"></a>
     <a href="https://github.com/uninterestingDev/uninteresting-bot/graphs/contributors"><img src="https://img.shields.io/github/contributors/uninterestingDev/uninteresting-bot" alt="Contributors"></a>
-    <a href="https://discord.gg/U7eCYUy"><img src="https://img.shields.io/discord/602526025209085954?label=Dicord server" alt="Discord"></a>
+    <a href="https://discord.gg/U7eCYUy"><img src="https://img.shields.io/discord/602526025209085954?label=Discord%20server" alt="Discord"></a>
 </p>
 
 ## Table of Contents
