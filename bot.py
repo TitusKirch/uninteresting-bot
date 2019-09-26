@@ -1,21 +1,16 @@
-import configparser
-import os
+import discord
+from utilities import getConfig
+from discord.ext import commands
+from cogs.MainCog import MainCog as MainCog
 
-# get constants
-DIR = os.path.join(os.getcwd(), '')
+def run():
+    # get config
+    config = getConfig()
+
+    # create client
+    client = commands.Bot(command_prefix=config['bot']['command_prefix'], case_insensitive=True)
+    client.add_cog(MainCog(client))
+    client.run(config['bot']['token'])
 
 
-def getConfig():
-    # create config
-    config = configparser.ConfigParser()
 
-    # check if default config file exist
-    if os.path.isfile(DIR + 'config_default.ini'):
-        config.read(DIR + 'config_default.ini')
-
-    # check if custom config file exist
-    if os.path.isfile(DIR + 'config.ini'):
-        config.read(DIR + 'config.ini')
-
-    # return config
-    return config
