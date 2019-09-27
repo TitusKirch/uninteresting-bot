@@ -4,7 +4,7 @@ from discord.ext import commands
 
 extensions = (
     'cogs.admin',
-    'cogs.MainCog',
+    'cogs.general',
 )
 
 class UninterestingBot(commands.AutoShardedBot):
@@ -24,6 +24,11 @@ class UninterestingBot(commands.AutoShardedBot):
                 self.load_extension(extension)
             except Exception as e:
                 print(e)
+    
+    async def on_ready(self):
+        if self.config['bot']['game_name'] != '':
+            await self.change_presence(activity=discord.Activity(name=self.config['bot']['game_name'], type=discord.ActivityType.playing))
+        print('Logged in as "' + self.user.name + '" [ID: ' + str(self.user.id) + ']')
     
     def run(self):
         try:
