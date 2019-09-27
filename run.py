@@ -1,4 +1,6 @@
-import bot
+from bot import UninterestingBot
 
 if __name__ == "__main__":
-    bot.run();
+    bot = UninterestingBot()
+    bot.run()
+

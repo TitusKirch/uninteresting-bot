@@ -7,22 +7,26 @@ extensions = (
     'cogs.MainCog',
 )
 
-def run():
-    # get config
-    config = getConfig()
+class UninterestingBot(commands.AutoShardedBot):
+    def __init__(self):
+        # get config
+        self.config = getConfig()
 
-    # create client
-    client = commands.Bot(command_prefix=config['bot']['command_prefix'], case_insensitive=True)
+        # setup client
+        super().__init__(command_prefix=self.config['bot']['command_prefix'], case_insensitive=True)
 
-    # remove default commands
-    client.remove_command('help')
-
-    # load extensions
-    for extension in extensions:
+        # remove default commands
+        self.remove_command('help')
+        
+        # load extensions
+        for extension in extensions:
+            try:
+                self.load_extension(extension)
+            except Exception as e:
+                print(e)
+    
+    def run(self):
         try:
-            client.load_extension(extension)
+            super().run(self.config['bot']['token'], reconnect=True)
         except Exception as e:
             print(e)
-
-    # run bot
-    client.run(config['bot']['token'])
