@@ -1,4 +1,4 @@
-# uninteresting-bot
+# UninterestingBot
 <p align="center">
     <a href="https://github.com/uninterestingDev/uninteresting-bot/blob/master/LICENSE"><img src="https://img.shields.io/github/license/uninterestingDev/uninteresting-bot" alt="License"></a>
     <a href="https://github.com/uninterestingDev/uninteresting-bot/releases"><img src="https://img.shields.io/github/downloads/uninterestingDev/uninteresting-bot/total" alt="Downloads"></a>
