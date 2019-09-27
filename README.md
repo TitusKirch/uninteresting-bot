@@ -7,7 +7,6 @@
 </p>
 
 ## Table of Contents
-
 * [About the project](#about-the-project)
 * [Getting Started](#getting-started)
     * [Requirements](#requirements)
@@ -19,14 +18,12 @@
 * [License](#license)
 
 ## About the project
-
 *Coming soon*
 
 ## Getting Started
 In order for the software to be used properly, all [requirements](#requirements) must be met.
 
 ### Requirements
-
 * Python 3.5.3 or higher
 * PIP
 
@@ -64,19 +61,15 @@ python3 run.py
 ```
 
 ## Versioning
-
 We use [SemVer](http://semver.org/) for versioning. For available versions, see the [tags on this repository](https://github.com/uninterestingDev/uninteresting-bot/tags). 
 
 ## Built With
-
 * [discord.py](https://github.com/Rapptz/discord.py) - An API wrapper for Discord written in Python.
 
 ## Authors
-
 * **Titus Kirch** - *Main development* - [TitusKirch](https://github.com/TitusKirch)
 
 See also the list of [contributors](https://github.com/uninterestingDev/uninteresting-bot/graphs/contributors) who participated in this project.
 
 ## License
-
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
