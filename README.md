@@ -12,6 +12,7 @@
 * [Getting Started](#getting-started)
     * [Requirements](#requirements)
     * [Installing](#installing)
+    * [Run bot](#run-bot)
 * [Versioning](#versioning)
 * [Built With](#built-with)
 * [Authors](#authors)
@@ -54,6 +55,12 @@ git clone git@github.com:uninterestingDev/uninteresting-bot.git
 cd uninteresting-bot
 cp config_default.ini config.ini 
 nano config.ini 
+```
+
+### Run bot
+You can start the bot manually with the following command
+```bash
+python3 run.py 
 ```
 
 ## Versioning
