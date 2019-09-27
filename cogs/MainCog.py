@@ -12,3 +12,10 @@ class MainCog(commands.Cog, name='MainCog'):
         if self.config['bot']['game_name'] != '':
             await self.bot.change_presence(activity=discord.Activity(name=self.config['bot']['game_name'], type=discord.ActivityType.playing))
         print('Logged in as "' + self.bot.user.name + '" [ID: ' + str(self.bot.user.id) + ']')
+    
+    @commands.command()
+    async def help(self, ctx):
+        await ctx.send('>>> Coming soon')
+
+def setup(bot):
+    bot.add_cog(MainCog(bot))
