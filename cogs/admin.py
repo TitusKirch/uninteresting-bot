@@ -7,6 +7,7 @@ class Admin(commands.Cog, name='Admin'):
         self.cogs_dir = 'cogs.'
 
     @commands.command()
+    @commands.has_permissions(administrator=True)
     async def load(self, ctx, module: str):
         try:
             self.bot.load_extension(self.cogs_dir + module)
@@ -17,6 +18,7 @@ class Admin(commands.Cog, name='Admin'):
             await ctx.send(':white_check_mark: "' + module + '" was successfully loaded.')
 
     @commands.command()
+    @commands.has_permissions(administrator=True)
     async def unload(self, ctx, module : str):
         try:
             self.bot.unload_extension(self.cogs_dir + module)
@@ -27,6 +29,7 @@ class Admin(commands.Cog, name='Admin'):
             await ctx.send(':white_check_mark: "' + module + '" was successfully unloaded.')
 
     @commands.command()
+    @commands.has_permissions(administrator=True)
     async def reload(self, ctx, module : str):
         try:
             self.bot.unload_extension(self.cogs_dir + module)
