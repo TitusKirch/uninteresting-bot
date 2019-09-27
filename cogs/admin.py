@@ -28,7 +28,7 @@ class Admin(commands.Cog, name='Admin'):
         else:
             await ctx.send(':white_check_mark: "' + module + '" was successfully unloaded.')
 
-    @commands.command()
+    @commands.command(aliases=['r'])
     @commands.has_permissions(administrator=True)
     async def reload(self, ctx, module : str):
         try:
