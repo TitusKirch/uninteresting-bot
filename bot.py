@@ -1,4 +1,6 @@
 import discord
+import logging
+from datetime import datetime
 from utilities import getConfig
 from discord.ext import commands
 
@@ -12,6 +14,14 @@ class UninterestingBot(commands.AutoShardedBot):
     def __init__(self):
         # get config
         self.config = getConfig()
+
+        #setup logger if logging is true
+        if(self.config['bot']['logging'].lower() == 'true'):
+            logger = logging.getLogger('discord')
+            logger.setLevel((logging.DEBUG if self.config['bot']['debug'].lower() == 'true' else logging.ERROR))
+            handler = logging.FileHandler(filename=datetime.now().strftime('logs/log%Y-%m-%d_%H-%M-%S.log'), encoding='utf-8', mode='w')
+            handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
+            logger.addHandler(handler)
 
         # setup client
         super().__init__(command_prefix=self.config['bot']['command_prefix'], case_insensitive=True)
