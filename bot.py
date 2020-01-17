@@ -7,7 +7,8 @@ from discord.ext import commands
 extensions = (
     'cogs.admin',
     'cogs.general',
-    'cogs.members'
+    'cogs.members',
+    'cogs.rules'
 )
 
 class UninterestingBot(commands.AutoShardedBot):
