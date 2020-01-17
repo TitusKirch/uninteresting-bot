@@ -38,8 +38,10 @@ class UninterestingBot(commands.AutoShardedBot):
                 print(e)
     
     async def on_ready(self):
-        if self.config['bot']['game_name'] != '':
-            await self.change_presence(activity=discord.Activity(name=self.config['bot']['game_name'], type=discord.ActivityType.playing))
+        if self.config['bot']['status_name'] != '':
+            await self.change_presence(activity=discord.Activity(
+                name=self.config['bot']['status_name'],
+                type=discord.ActivityType.playing))
         print('Logged in as "' + self.user.name + '" [ID: ' + str(self.user.id) + ']')
     
     def run(self):
