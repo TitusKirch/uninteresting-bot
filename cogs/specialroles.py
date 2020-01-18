@@ -21,7 +21,7 @@ class SpecialRoles(commands.Cog, name='SpecialRoles'):
 
             # foreach roles
             for command, role in roles.items():
-                result += role['title'] + "\n"
+                result += command + " => " + role['title'] + "\n"
 
             result += "```\n"
 
@@ -31,7 +31,7 @@ class SpecialRoles(commands.Cog, name='SpecialRoles'):
     async def role(self, ctx, *args):
 
         # foreach filtered args
-        for arg in list(filter(None, args)):
+        for arg in list(map(str.lower,list(filter(None, args)))):
 
             # foreach categories
             for category, roles in self.specialRoles.items():
