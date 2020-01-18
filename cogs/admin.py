@@ -53,6 +53,15 @@ class Admin(commands.Cog, name='Admin'):
                         tmpRoles = []
                         for role in member.roles:
                             tmpRoles.append(int(role.id))
+
+                        if int(self.config['guild']['bot_role']) > 0:
+                            if int(self.config['guild']['bot_role']) in tmpRoles:
+                                for placeholder in self.config['guild']['use_placeholders'].split(','):
+                                    if int(placeholder) in tmpRoles:
+                                        role = discord.utils.get(guild.roles, id=int(placeholder))
+                                        await member.remove_roles(role)
+                                continue
+
                         for placeholder in self.config['guild']['use_placeholders'].split(','):
                             if int(placeholder) not in tmpRoles:
                                 role = discord.utils.get(guild.roles, id=int(placeholder))

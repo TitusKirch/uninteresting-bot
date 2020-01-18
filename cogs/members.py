@@ -32,6 +32,11 @@ class Members(commands.Cog, name='Members'):
 
             # set member
             member = after
+
+            # get roles
+            tmpRoles = []
+            for role in member.roles:
+                tmpRoles.append(int(role.id))
             
             # check if guest should be add or remove
             if int(self.config['guild']['guest_role']) > 0:
@@ -43,10 +48,7 @@ class Members(commands.Cog, name='Members'):
                     for placeholder in tmpPlaceholders:
                         placeholders.append(int(placeholder))
                         
-                tmpRoles = []
                 for role in member.roles:
-                    tmpRoles.append(int(role.id))
-                
                     if int(role.id) == int(self.config['guild']['guest_role']):
                         continue
                     elif int(role.id) in placeholders:
@@ -67,6 +69,23 @@ class Members(commands.Cog, name='Members'):
                     if int(self.config['guild']['guest_role']) in tmpRoles:
                         role = discord.utils.get(member.guild.roles, id=int(self.config['guild']['guest_role']))
                         await member.remove_roles(role)
+
+            # check if placeholder should be add or remove
+            if self.config['guild']['use_placeholders'] != "0":
+                isBot = False
+                if int(self.config['guild']['bot_role']) > 0:
+                    if int(self.config['guild']['bot_role']) in tmpRoles:
+                        isBot = True
+                        for placeholder in self.config['guild']['use_placeholders'].split(','):
+                            if int(placeholder) in tmpRoles:
+                                role = discord.utils.get(member.guild.roles, id=int(placeholder))
+                                await member.remove_roles(role)
+                
+                if not isBot:
+                    for placeholder in self.config['guild']['use_placeholders'].split(','):
+                        if int(placeholder) not in tmpRoles:
+                            role = discord.utils.get(member.guild.roles, id=int(placeholder))
+                            await member.add_roles(role)
 
 def setup(bot):
     bot.add_cog(Members(bot))
