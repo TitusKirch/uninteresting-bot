@@ -15,7 +15,7 @@ class Members(commands.Cog, name='Members'):
                 await channel.send('**Welcome {0.mention} :tada:**'.format(member))
         if self.config['guild']['use_placeholders'] != "0":
             for placeholder in self.config['guild']['use_placeholders'].split(','):
-                role = discord.utils.get(guild.roles, id=int(placeholder))
+                role = discord.utils.get(member.guild.roles, id=int(placeholder))
                 await member.add_roles(role)
 
     @commands.Cog.listener()
