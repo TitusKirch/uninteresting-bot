@@ -45,9 +45,9 @@ class Admin(commands.Cog, name='Admin'):
     @commands.command()
     @commands.has_permissions(administrator=True)
     async def setplaceholders(self, ctx):
-        await ctx.send(':clock10: An attempt is made to set all placeholder roles. This may take a few minutes.')
-        try:
-            if self.config['guild']['use_placeholders'] != "0":
+        if self.config['guild']['use_placeholders'] != "0":
+            await ctx.send(':clock10: An attempt is made to set all placeholder roles. This may take a few minutes.')
+            try:
                 for guild in self.bot.guilds:
                     for member in guild.members:
                         tmpRoles = []
@@ -57,18 +57,18 @@ class Admin(commands.Cog, name='Admin'):
                             if int(placeholder) not in tmpRoles:
                                 role = discord.utils.get(guild.roles, id=int(placeholder))
                                 await member.add_roles(role)
-        except Exception as e:
-            await ctx.send(':x: Somthing went wrong. The following error message occurred:')
-            await ctx.send('```{}: {}```'.format(type(e).__name__, e))
-        else:
-            await ctx.send(':white_check_mark: All placeholder roles was successfully set.')
+            except Exception as e:
+                await ctx.send(':x: Somthing went wrong. The following error message occurred:')
+                await ctx.send('```{}: {}```'.format(type(e).__name__, e))
+            else:
+                await ctx.send(':white_check_mark: All placeholder roles was successfully set.')
 
     @commands.command()
     @commands.has_permissions(administrator=True)
     async def setguest(self, ctx):
-        await ctx.send(':clock10: An attempt is made to set all guest roles. This may take a few minutes.')
-        try:
-            if int(self.config['guild']['guest_group']) > 0:
+        if int(self.config['guild']['guest_group']) > 0:
+            await ctx.send(':clock10: An attempt is made to set all guest roles. This may take a few minutes.')
+            try:
                 for guild in self.bot.guilds:
                     for member in guild.members:
                         setGuest = True
@@ -91,11 +91,11 @@ class Admin(commands.Cog, name='Admin'):
                         if setGuest:
                             role = discord.utils.get(guild.roles, id=int(self.config['guild']['guest_group']))
                             await member.add_roles(role)
-        except Exception as e:
-            await ctx.send(':x: Somthing went wrong. The following error message occurred:')
-            await ctx.send('```{}: {}```'.format(type(e).__name__, e))
-        else:
-            await ctx.send(':white_check_mark: All placeholder roles was successfully set.')
+            except Exception as e:
+                await ctx.send(':x: Somthing went wrong. The following error message occurred:')
+                await ctx.send('```{}: {}```'.format(type(e).__name__, e))
+            else:
+                await ctx.send(':white_check_mark: All placeholder roles was successfully set.')
 
 def setup(bot):
     bot.add_cog(Admin(bot))
