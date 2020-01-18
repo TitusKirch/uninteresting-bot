@@ -10,8 +10,9 @@ class SpecialRoles(commands.Cog, name='SpecialRoles'):
     @commands.command()
     async def roles(self, ctx):
         # setup
-        result = "You can join the following roles:\n"
-        result += "*(Each group name is preceded by the required command to join. This **always** starts with a ?)*\n\n\n"
+        result = ""
+        result += str(ctx.author.mention) + "\nRoles can be joined/left with the command `!role roleName`. Alternatively the alias `!r` can be used and multiple roles (separated by spaces) can be specified. For example `!r roleA roleB roleC`\n"
+        result += "You can join the following roles:\n\n"
 
         # foreach categories
         for category, roles in self.specialRoles.items():
@@ -20,11 +21,10 @@ class SpecialRoles(commands.Cog, name='SpecialRoles'):
 
             # foreach roles
             for command, role in roles.items():
-                result += "?" + command + " => " + role['title'] + "\n"
+                result += role['title'] + "\n"
 
-            result += "```\n\n"
+            result += "```\n"
 
-        
         await ctx.send(result)
 
     @commands.command(aliases=['r'])
