@@ -66,7 +66,7 @@ class Admin(commands.Cog, name='Admin'):
     @commands.command()
     @commands.has_permissions(administrator=True)
     async def setguests(self, ctx):
-        if int(self.config['guild']['guest_group']) > 0:
+        if int(self.config['guild']['guest_role']) > 0:
             await ctx.send(':clock10: An attempt is made to set all guest roles. This may take a few minutes.')
             try:
                 for guild in self.bot.guilds:
@@ -89,7 +89,7 @@ class Admin(commands.Cog, name='Admin'):
                                 break
                         
                         if setGuest:
-                            role = discord.utils.get(guild.roles, id=int(self.config['guild']['guest_group']))
+                            role = discord.utils.get(guild.roles, id=int(self.config['guild']['guest_role']))
                             await member.add_roles(role)
             except Exception as e:
                 await ctx.send(':x: Somthing went wrong. The following error message occurred:')
