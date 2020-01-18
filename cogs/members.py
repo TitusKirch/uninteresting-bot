@@ -25,5 +25,48 @@ class Members(commands.Cog, name='Members'):
             if channel != None:
                 await channel.send('*Bye {0.mention} :sleepy:*'.format(member))
 
+    @commands.Cog.listener()
+    async def on_member_update(self, before, after):
+        # check if roles change
+        if before.roles != after.roles:
+
+            # set member
+            member = after
+            
+            # check if guest should be add or remove
+            if int(self.config['guild']['guest_role']) > 0:
+                setGuest = True
+
+                placeholders = [] 
+                if self.config['guild']['use_placeholders'] != "0":
+                    tmpPlaceholders = self.config['guild']['use_placeholders'].split(',')
+                    for placeholder in tmpPlaceholders:
+                        placeholders.append(int(placeholder))
+                        
+                tmpRoles = []
+                for role in member.roles:
+                    tmpRoles.append(int(role.id))
+                
+                    if int(role.id) == int(self.config['guild']['guest_role']):
+                        continue
+                    elif int(role.id) in placeholders:
+                        continue
+                    elif int(self.config['guild']['rule_message']) > 0 and int(self.config['guild']['rule_role']) > 0 and int(self.config['guild']['rule_role']) == int(role.id):
+                        continue
+                    elif str(role) == "@everyone":
+                        continue
+                    else:
+                        setGuest = False
+                        break
+                        
+                if setGuest:
+                    if not int(self.config['guild']['guest_role']) in tmpRoles:
+                        role = discord.utils.get(member.guild.roles, id=int(self.config['guild']['guest_role']))
+                        await member.add_roles(role)
+                else:
+                    if int(self.config['guild']['guest_role']) in tmpRoles:
+                        role = discord.utils.get(member.guild.roles, id=int(self.config['guild']['guest_role']))
+                        await member.remove_roles(role)
+
 def setup(bot):
     bot.add_cog(Members(bot))
