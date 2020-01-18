@@ -1,9 +1,9 @@
 # UninterestingBot
 <p align="center">
-    <a href="https://github.com/uninterestingDev/uninteresting-bot/blob/master/LICENSE"><img src="https://img.shields.io/github/license/uninterestingDev/uninteresting-bot" alt="License"></a>
-    <a href="https://github.com/uninterestingDev/uninteresting-bot/releases"><img src="https://img.shields.io/github/downloads/uninterestingDev/uninteresting-bot/total" alt="Downloads"></a>
-    <a href="https://github.com/uninterestingDev/uninteresting-bot/graphs/contributors"><img src="https://img.shields.io/github/contributors/uninterestingDev/uninteresting-bot" alt="Contributors"></a>
-    <a href="https://discord.gg/U7eCYUy"><img src="https://img.shields.io/discord/602526025209085954?label=Discord%20server" alt="Discord"></a>
+    <a href="https://github.com/TitusKirch/uninteresting-bot/blob/master/LICENSE"><img src="https://img.shields.io/github/license/TitusKirch/uninteresting-bot?label=License&labelColor=30363D&color=2FBF50" alt="License"></a>
+    <a href="https://github.com/TitusKirch/uninteresting-bot/releases"><img src="https://img.shields.io/github/downloads/TitusKirch/uninteresting-bot/total?label=Downloads&labelColor=30363D&color=2FBF50" alt="Downloads"></a>
+    <a href="https://github.com/TitusKirch/uninteresting-bot/graphs/contributors"><img src="https://img.shields.io/github/contributors/TitusKirch/uninteresting-bot?label=Contributors&labelColor=30363D&color=2FBF50" alt="Contributors"></a>
+    <a href="https://discord.tkirch.dev"><img src="https://img.shields.io/discord/576562577769889805?label=Discord&labelColor=30363D&color=2FBF50&logoColor=959DA5&logo=Discord" alt="Discord"></a>
 </p>
 
 ## Table of Contents
@@ -12,6 +12,7 @@
     * [Requirements](#requirements)
     * [Installing](#installing)
     * [Run bot](#run-bot)
+* [Contributing](#contributing)
 * [Versioning](#versioning)
 * [Built With](#built-with)
 * [Authors](#authors)
@@ -32,7 +33,7 @@ In order for the software to be used properly, all [requirements](#requirements)
 
 Clone the repository and go to the cloned folder
 ```bash
-git clone git@github.com:uninterestingDev/uninteresting-bot.git
+git clone https://github.com/TitusKirch/uninteresting-bot.git
 cd uninteresting-bot
 ```
 
@@ -48,7 +49,7 @@ nano config.ini
 
 Here are all commands also in one block
 ```bash
-git clone git@github.com:uninterestingDev/uninteresting-bot.git
+git clone https://github.com/TitusKirch/uninteresting-bot.git
 cd uninteresting-bot
 cp config_default.ini config.ini 
 nano config.ini 
@@ -60,8 +61,13 @@ You can start the bot manually with the following command
 python3 run.py 
 ```
 
+## Contributing
+There are many ways to help this open source project. Write tutorials, improve documentation, share bugs with others, make feature requests, or just write code. We look forward to every contribution.
+
+For more information and our guidelines, please refer to the [CONTRIBUTING.md](CONTRIBUTING.md) file.
+
 ## Versioning
-We use [SemVer](http://semver.org/) for versioning. For available versions, see the [tags on this repository](https://github.com/uninterestingDev/uninteresting-bot/tags). 
+We use [SemVer](http://semver.org/) for versioning. For available versions, see the [tags on this repository](https://github.com/TitusKirch/uninteresting-bot/tags). 
 
 ## Built With
 * [discord.py](https://github.com/Rapptz/discord.py) - An API wrapper for Discord written in Python.
@@ -69,7 +75,7 @@ We use [SemVer](http://semver.org/) for versioning. For available versions, see 
 ## Authors
 * **Titus Kirch** - *Main development* - [TitusKirch](https://github.com/TitusKirch)
 
-See also the list of [contributors](https://github.com/uninterestingDev/uninteresting-bot/graphs/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/TitusKirch/uninteresting-bot/graphs/contributors) who participated in this project.
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

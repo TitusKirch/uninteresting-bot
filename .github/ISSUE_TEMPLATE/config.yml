@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Website
+    url: https://tkirch.dev
+    about: Website of Titus Kirch.
+  - name: Discord
+    url: https://discord.tkirch.dev
+    about: The official discord server of Titus Kirch.
