@@ -1,5 +1,11 @@
 blank_issues_enabled: false
 contact_links:
+  - name: Forum
+    url: https://tkirch.dev/forum/board/25-uninterestingbot/
+    about: Official forum.
+  - name: Lexicon
+    url: https://tkirch.dev/lexicon/lexicon/34-uninterestingbot/
+    about: Official lexicon.
   - name: Website
     url: https://tkirch.dev
     about: Website of Titus Kirch.
