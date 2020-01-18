@@ -78,9 +78,15 @@ class Admin(commands.Cog, name='Admin'):
                             tmpPlaceholders = self.config['guild']['use_placeholders'].split(',')
                             for placeholder in tmpPlaceholders:
                                 placeholders.append(int(placeholder))
-
+                        
+                        tmpRoles = []
                         for role in member.roles:
-                            if int(role.id) in placeholders:
+                            tmpRoles.append(int(role.id))
+                            if int(role.id) == int(self.config['guild']['guest_role']):
+                                continue
+                            elif int(role.id) in placeholders:
+                                continue
+                            elif int(self.config['guild']['rule_message']) > 0 and int(self.config['guild']['rule_role']) > 0 and int(self.config['guild']['rule_role']) == int(role.id):
                                 continue
                             elif str(role) == "@everyone":
                                 continue
@@ -89,8 +95,14 @@ class Admin(commands.Cog, name='Admin'):
                                 break
                         
                         if setGuest:
-                            role = discord.utils.get(guild.roles, id=int(self.config['guild']['guest_role']))
-                            await member.add_roles(role)
+                            if not int(self.config['guild']['guest_role']) in tmpRoles:
+                                role = discord.utils.get(guild.roles, id=int(self.config['guild']['guest_role']))
+                                await member.add_roles(role)
+                        else:
+                            if int(self.config['guild']['guest_role']) in tmpRoles:
+                                role = discord.utils.get(guild.roles, id=int(self.config['guild']['guest_role']))
+                                await member.remove_roles(role)
+
             except Exception as e:
                 await ctx.send(':x: Somthing went wrong. The following error message occurred:')
                 await ctx.send('```{}: {}```'.format(type(e).__name__, e))
