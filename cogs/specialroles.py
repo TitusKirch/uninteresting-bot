@@ -26,37 +26,36 @@ class SpecialRoles(commands.Cog, name='SpecialRoles'):
 
         
         await ctx.send(result)
-    
-    @commands.Cog.listener()
-    async def on_message(self, message):
 
-        # check if message start with ?
-        if message.content.startswith('?'):
+    @commands.command(aliases=['r'])
+    async def role(self, ctx, *args):
+
+        # foreach filtered args
+        for arg in list(filter(None, args)):
 
             # foreach categories
             for category, roles in self.specialRoles.items():
 
                 # check if command exist
-                if message.content.split('?')[1] in roles:
-                    
+                if arg in roles:
+
                     # get and check role
-                    role = roles[message.content.split('?')[1]]
+                    role = roles[arg]
                     if role['id'] > 0:
                     
                         # set special role
-                        specialRole = discord.utils.get(message.guild.roles, id=int(role['id']))
+                        specialRole = discord.utils.get(ctx.message.guild.roles, id=int(role['id']))
 
                         # check if member has role
-                        if specialRole in message.author.roles:
-                            await message.author.remove_roles(specialRole)
-                            await message.channel.send(str(message.author.mention ) + " you leave the role \"" + role['title'] + "\"")
+                        if specialRole in ctx.author.roles:
+                            await ctx.author.remove_roles(specialRole)
+                            await ctx.message.channel.send(str(ctx.author.mention ) + " you leave the role \"" + role['title'] + "\"")
                         else:
-                            await message.author.add_roles(specialRole)
-                            await message.channel.send(str(message.author.mention ) + " you join the role \"" + role['title'] + "\"")
+                            await ctx.author.add_roles(specialRole)
+                            await ctx.message.channel.send(str(ctx.author.mention ) + " you join the role \"" + role['title'] + "\"")
                         
                     # stop loop
                     break
-
 
 def setup(bot):
     bot.add_cog(SpecialRoles(bot))
