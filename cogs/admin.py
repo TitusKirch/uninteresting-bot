@@ -65,7 +65,7 @@ class Admin(commands.Cog, name='Admin'):
 
     @commands.command()
     @commands.has_permissions(administrator=True)
-    async def setguest(self, ctx):
+    async def setguests(self, ctx):
         if int(self.config['guild']['guest_group']) > 0:
             await ctx.send(':clock10: An attempt is made to set all guest roles. This may take a few minutes.')
             try:
@@ -95,7 +95,7 @@ class Admin(commands.Cog, name='Admin'):
                 await ctx.send(':x: Somthing went wrong. The following error message occurred:')
                 await ctx.send('```{}: {}```'.format(type(e).__name__, e))
             else:
-                await ctx.send(':white_check_mark: All placeholder roles was successfully set.')
+                await ctx.send(':white_check_mark: All guest roles was successfully set.')
 
 def setup(bot):
     bot.add_cog(Admin(bot))
