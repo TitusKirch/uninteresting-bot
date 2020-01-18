@@ -74,49 +74,59 @@ class Admin(commands.Cog, name='Admin'):
 
     @commands.command()
     @commands.has_permissions(administrator=True)
-    async def setguests(self, ctx):
+    async def setguests(self, ctx): 
+        # check if guest role isset
         if int(self.config['guild']['guest_role']) > 0:
-            await ctx.send(':clock10: An attempt is made to set all guest roles. This may take a few minutes.')
-            try:
-                for guild in self.bot.guilds:
-                    for member in guild.members:
-                        setGuest = True
 
-                        placeholders = [] 
-                        if self.config['guild']['use_placeholders'] != "0":
-                            tmpPlaceholders = self.config['guild']['use_placeholders'].split(',')
-                            for placeholder in tmpPlaceholders:
-                                placeholders.append(int(placeholder))
-                        
-                        tmpRoles = []
-                        for role in member.roles:
-                            tmpRoles.append(int(role.id))
-                            if int(role.id) == int(self.config['guild']['guest_role']):
-                                continue
-                            elif int(role.id) in placeholders:
-                                continue
-                            elif int(self.config['guild']['rule_message']) > 0 and int(self.config['guild']['rule_role']) > 0 and int(self.config['guild']['rule_role']) == int(role.id):
-                                continue
-                            elif str(role) == "@everyone":
-                                continue
+            #check if rank roles are set
+            if self.config['guild']['rank_roles'] != "0":
+                await ctx.send(':clock10: An attempt is made to set all guest roles. This may take a few minutes.')
+                
+                # get ranks
+                ranks = []
+                for rank in self.config['guild']['rank_roles'].split(','):
+                    ranks.append(int(rank))
+                
+                # add bot role to ranks
+                if int(self.config['guild']['bot_role']) > 0:
+                    ranks.append(int(self.config['guild']['bot_role']))
+                
+                try:
+                    for guild in self.bot.guilds:
+                        for member in guild.members:
+                            # setup
+                            setGuest = True
+                            
+                            # get roles
+                            memberRoles = []
+                            for role in member.roles:
+                                memberRoles.append(int(role.id))
+                            
+                            # check if member has one rank
+                            for role in member.roles:
+                                if int(role.id) in ranks:
+                                    setGuest = False
+                                    break
+                            
+                            # check if member get guest role
+                            if setGuest:
+                                # check if member has not guest role
+                                if not int(self.config['guild']['guest_role']) in memberRoles:
+                                    # set guest role
+                                    role = discord.utils.get(guild.roles, id=int(self.config['guild']['guest_role']))
+                                    await member.add_roles(role)
                             else:
-                                setGuest = False
-                                break
-                        
-                        if setGuest:
-                            if not int(self.config['guild']['guest_role']) in tmpRoles:
-                                role = discord.utils.get(guild.roles, id=int(self.config['guild']['guest_role']))
-                                await member.add_roles(role)
-                        else:
-                            if int(self.config['guild']['guest_role']) in tmpRoles:
-                                role = discord.utils.get(guild.roles, id=int(self.config['guild']['guest_role']))
-                                await member.remove_roles(role)
+                                # check if member has guest role
+                                if int(self.config['guild']['guest_role']) in memberRoles:
+                                    # remove guest role
+                                    role = discord.utils.get(guild.roles, id=int(self.config['guild']['guest_role']))
+                                    await member.remove_roles(role)
 
-            except Exception as e:
-                await ctx.send(':x: Somthing went wrong. The following error message occurred:')
-                await ctx.send('```{}: {}```'.format(type(e).__name__, e))
-            else:
-                await ctx.send(':white_check_mark: All guest roles was successfully set.')
+                except Exception as e:
+                    await ctx.send(':x: Somthing went wrong. The following error message occurred:')
+                    await ctx.send('```{}: {}```'.format(type(e).__name__, e))
+                else:
+                    await ctx.send(':white_check_mark: All guest roles was successfully set.')
 
 def setup(bot):
     bot.add_cog(Admin(bot))

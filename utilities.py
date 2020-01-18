@@ -1,5 +1,6 @@
 import configparser
 import os
+import json
 
 # get constants
 DIR = os.path.join(os.getcwd(), '')
@@ -18,3 +19,16 @@ def getConfig():
 
     # return config
     return config
+
+def getSpecialRoles():
+    # open json file
+    jsonFile = open(DIR + 'specialRoles.json')
+
+    # read json file
+    jsonStr = jsonFile.read()
+
+    # load data
+    jsonData = json.loads(jsonStr)
+
+    # return data
+    return jsonData

@@ -1,11 +1,13 @@
 import discord
 from discord.ext import commands
 from utilities import getConfig
+from utilities import getSpecialRoles
 
 class Members(commands.Cog, name='Members'):
     def __init__(self, bot):
         self.bot = bot
         self.config = getConfig()
+        self.specialRoles = getSpecialRoles()
     
     @commands.Cog.listener()
     async def on_member_join(self, member):
@@ -32,60 +34,94 @@ class Members(commands.Cog, name='Members'):
 
             # set member
             member = after
+            guild = member.guild
 
             # get roles
-            tmpRoles = []
+            memberRoles = []
             for role in member.roles:
-                tmpRoles.append(int(role.id))
+                memberRoles.append(int(role.id))
             
-            # check if guest should be add or remove
+            # check if guest role isset
             if int(self.config['guild']['guest_role']) > 0:
-                setGuest = True
 
-                placeholders = [] 
-                if self.config['guild']['use_placeholders'] != "0":
-                    tmpPlaceholders = self.config['guild']['use_placeholders'].split(',')
-                    for placeholder in tmpPlaceholders:
-                        placeholders.append(int(placeholder))
-                        
-                for role in member.roles:
-                    if int(role.id) == int(self.config['guild']['guest_role']):
-                        continue
-                    elif int(role.id) in placeholders:
-                        continue
-                    elif int(self.config['guild']['rule_message']) > 0 and int(self.config['guild']['rule_role']) > 0 and int(self.config['guild']['rule_role']) == int(role.id):
-                        continue
-                    elif str(role) == "@everyone":
-                        continue
+                #check if rank roles are set
+                if self.config['guild']['rank_roles'] != "0":
+
+                    # setup
+                    setGuest = True
+
+                    # get ranks
+                    ranks = []
+                    for rank in self.config['guild']['rank_roles'].split(','):
+                        ranks.append(int(rank))
+                    
+                    # add bot role to ranks
+                    if int(self.config['guild']['bot_role']) > 0:
+                        ranks.append(int(self.config['guild']['bot_role']))
+                    
+                    # check if member has one rank
+                    for role in member.roles:
+                        if int(role.id) in ranks:
+                            setGuest = False
+                            break
+                    
+                    # check if member get guest role
+                    if setGuest:
+                        # check if member has not guest role
+                        if not int(self.config['guild']['guest_role']) in memberRoles:
+                            # set guest role
+                            role = discord.utils.get(guild.roles, id=int(self.config['guild']['guest_role']))
+                            await member.add_roles(role)
                     else:
-                        setGuest = False
-                        break
-                        
-                if setGuest:
-                    if not int(self.config['guild']['guest_role']) in tmpRoles:
-                        role = discord.utils.get(member.guild.roles, id=int(self.config['guild']['guest_role']))
-                        await member.add_roles(role)
-                else:
-                    if int(self.config['guild']['guest_role']) in tmpRoles:
-                        role = discord.utils.get(member.guild.roles, id=int(self.config['guild']['guest_role']))
-                        await member.remove_roles(role)
+                        # check if member has guest role
+                        if int(self.config['guild']['guest_role']) in memberRoles:
+                            # remove guest role
+                            role = discord.utils.get(guild.roles, id=int(self.config['guild']['guest_role']))
+                            await member.remove_roles(role)
 
             # check if placeholder should be add or remove
             if self.config['guild']['use_placeholders'] != "0":
                 isBot = False
                 if int(self.config['guild']['bot_role']) > 0:
-                    if int(self.config['guild']['bot_role']) in tmpRoles:
+                    if int(self.config['guild']['bot_role']) in memberRoles:
                         isBot = True
                         for placeholder in self.config['guild']['use_placeholders'].split(','):
-                            if int(placeholder) in tmpRoles:
-                                role = discord.utils.get(member.guild.roles, id=int(placeholder))
+                            if int(placeholder) in memberRoles:
+                                role = discord.utils.get(guild.roles, id=int(placeholder))
                                 await member.remove_roles(role)
                 
                 if not isBot:
                     for placeholder in self.config['guild']['use_placeholders'].split(','):
-                        if int(placeholder) not in tmpRoles:
-                            role = discord.utils.get(member.guild.roles, id=int(placeholder))
+                        if int(placeholder) not in memberRoles:
+                            role = discord.utils.get(guild.roles, id=int(placeholder))
                             await member.add_roles(role)
+            
+            # check if gaming role isset
+            if int(self.config['gaming']['general_role']) > 0:
+
+                # check if member is in one gaming role
+                hasGameRole = False
+                for gameRole, gameRoleInfo in self.specialRoles['gaming'].items():
+                    if int(gameRoleInfo['id']) in memberRoles:
+                        hasGameRole = True
+                        break
+                    
+                # check if member get general gaming role
+                if hasGameRole:
+                    # check if member has not general gaming role
+                    if not int(self.config['gaming']['general_role']) in memberRoles:
+                        # set general gaming role
+                        role = discord.utils.get(guild.roles, id=int(self.config['gaming']['general_role']))
+                        await member.add_roles(role)
+                else:
+                    # check if member has general gaming role
+                    if int(self.config['gaming']['general_role']) in memberRoles:
+                        # remove general gaming role
+                        role = discord.utils.get(guild.roles, id=int(self.config['gaming']['general_role']))
+                        await member.remove_roles(role)
+            
+                
+
 
 def setup(bot):
     bot.add_cog(Members(bot))
