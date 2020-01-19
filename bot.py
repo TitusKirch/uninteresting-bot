@@ -9,7 +9,8 @@ extensions = (
     'cogs.general',
     'cogs.members',
     'cogs.rules',
-    'cogs.specialroles'
+    'cogs.specialroles',
+    'cogs.social'
 )
 
 class UninterestingBot(commands.AutoShardedBot):
