@@ -12,10 +12,10 @@ class General(commands.Cog, name='General'):
         result += "**The following commands are available**\n"
         result += "```"
 
-        result += "!help|h => Display this text\n"
-        result += "!information|info|i => Show information about the bot\n"
-        result += "!roles => Show all roles you can join\n"
-        result += "!role|r roleA [roleB roleC...] => Join or leave a desired role (in this case roleA). Optionally, several roles (spaces separated) can be specified\n"
+        result += "!help|h => Display this text\n\n"
+        result += "!information|info|i => Show information about the bot\n\n"
+        result += "!roles => Show all roles you can join\n\n"
+        result += "!role|r roleA [roleB roleC...] => Join or leave a desired role (in this case roleA). Optionally, several roles (spaces separated) can be specified\n\n"
         result += "!socialmedia|social|s => Liste all linked Socialmedia accounts"
 
         result += "```"
