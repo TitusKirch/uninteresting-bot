@@ -12,6 +12,7 @@
     * [Requirements](#requirements)
     * [Installing](#installing)
     * [Run bot](#run-bot)
+    * [Commands](#commands)
 * [Contributing](#contributing)
 * [Versioning](#versioning)
 * [Built With](#built-with)
@@ -27,6 +28,8 @@ In order for the software to be used properly, all [requirements](#requirements)
 ### Requirements
 * Python 3.5.3 or higher
 * PIP
+* tmux
+* git
 
 ### Installing
 *At the end of this section you will find all commands in one block*
@@ -47,19 +50,41 @@ Edit the configuration file (it is important that you add your bot token)
 nano config.ini 
 ```
 
+Install all requirements
+```bash
+./bot.sh install
+```
+
+(Optional) Update the bot
+```bash
+./bot.sh update
+```
+
 Here are all commands also in one block
 ```bash
 git clone https://github.com/TitusKirch/uninteresting-bot.git
 cd uninteresting-bot
 cp config_default.ini config.ini 
 nano config.ini 
+./bot.sh install
 ```
 
-### Run bot
-You can start the bot manually with the following command
+### Run the bot
+You can start the bot with the following command
 ```bash
-python3 run.py 
+./bot.sh start
 ```
+
+### Commands
+You can start the bot with the following command
+
+| Command | Action |
+| --- | --- |
+| `./bot.sh start` | Start the bot |
+| `./bot.sh stop` | Stop the bot |
+| `./bot.sh restart` | Restart the bot |
+| `./bot.sh install` | Install all requirements |
+| `./bot.sh update` | Update the bot from this repository |
 
 ## Contributing
 There are many ways to help this open source project. Write tutorials, improve documentation, share bugs with others, make feature requests, or just write code. We look forward to every contribution.
