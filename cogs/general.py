@@ -1,9 +1,11 @@
 import discord
 from discord.ext import commands
+from utilities import getConfig
 
 class General(commands.Cog, name='General'):
     def __init__(self, bot):
         self.bot = bot
+        self.config = getConfig()
     
     @commands.command(aliases=['h'])
     async def help(self, ctx):
@@ -16,8 +18,9 @@ class General(commands.Cog, name='General'):
         result += "!information|info|i => Show information about the bot\n\n"
         result += "!roles => Show all roles you can join\n\n"
         result += "!role|r roleA [roleB roleC...] => Join or leave a desired role (in this case roleA). Optionally, several roles (spaces separated) can be specified\n\n"
-        result += "!socialmedia|social|s => Liste all linked Socialmedia accounts"
-
+        result += "!socialmedia|social|s => Liste all linked Socialmedia accounts\n\n"
+        result += "!status => Show a link to the Statuspagen"
+        
         result += "```"
 
         # send message
@@ -38,6 +41,18 @@ class General(commands.Cog, name='General'):
 
         # send message
         await ctx.send(result)
+
+    @commands.command()
+    async def status(self, ctx):
+        # check if cachet url isset
+        if self.config['cachet']['url'] not in ["", "myUrl"]:
+            # setup
+            result = ""
+            result += str(ctx.author.mention) + "\n"
+            result += self.config['cachet']['url']
+
+            # send message
+            await ctx.send(result)
 
 def setup(bot):
     bot.add_cog(General(bot))
