@@ -2,12 +2,12 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 start() {
-    echo "Start session..."
+    echo "Start bot..."
 	tmux new-session -d -s uninterestingBot \; send-keys /"cd $DIR ;python3 $DIR/run.py" Enter
 }
 
 stop() {
-    echo "Stop session..."
+    echo "Stop bot..."
 	tmux kill-session -t uninterestingBot
 }
 
