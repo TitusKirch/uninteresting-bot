@@ -23,7 +23,7 @@ class SpecialRoles(commands.Cog, name='SpecialRoles'):
             for command, role in roles.items():
                 result += command + " => " + role['title'] + "\n"
 
-            result += "```\n"
+            result += "```"
 
         await ctx.send(result)
 
