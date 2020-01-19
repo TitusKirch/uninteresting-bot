@@ -9,7 +9,7 @@ class General(commands.Cog, name='General'):
     async def help(self, ctx):
         # setup
         result = ""
-        result += "**The following commands are available**\n"
+        result += str(ctx.author.mention) + "\n**The following commands are available**\n"
         result += "```"
 
         result += "!help|h => Display this text\n\n"
@@ -25,9 +25,19 @@ class General(commands.Cog, name='General'):
 
     @commands.command(aliases=['i', 'info'])
     async def information(self, ctx):
-        await ctx.send('The UninterestingBot is a self hosting Discord-Bot, written by Titus Kirch in Python.\n\n' +
-                        'Website: https://uninteresting.dev/\n' + 
-                        'GitHub Repository: https://github.com/TitusKirch/uninteresting-bot\n')
+        # setup
+        result = ""
+        result += str(ctx.author.mention) + "\n"
+        result += "The UninterestingBot is a self hosting Discord-Bot, written by Titus Kirch in Python.\n\n"
+        result += "Website: https://uninteresting.dev\n"
+        result += "Official forum: https://tkirch.dev/forum/board/25-uninterestingbot/\n"
+        result += "Lexicon: https://tkirch.dev/lexicon/lexicon/34-uninterestingbot/\n"
+        result += "GitHub Repository: https://github.com/TitusKirch/uninteresting-bot\n"
+        result += "Website of Titus Kirch: https://tkirch.dev\n"
+        result += "The official discord server of Titus Kirch: https://discord.tkirch.dev\n"
+
+        # send message
+        await ctx.send(result)
 
 def setup(bot):
     bot.add_cog(General(bot))
