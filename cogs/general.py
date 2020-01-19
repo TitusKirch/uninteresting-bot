@@ -7,7 +7,21 @@ class General(commands.Cog, name='General'):
     
     @commands.command(aliases=['h'])
     async def help(self, ctx):
-        await ctx.send('>>> Coming soon')
+        # setup
+        result = ""
+        result += "**The following commands are available**\n"
+        result += "```"
+
+        result += "!help|h => Display this text\n"
+        result += "!info|i => Show information about the bot\n"
+        result += "!roles => Show all roles you can join\n"
+        result += "!role|r roleA [roleB roleC...] => Join or leave a desired role (in this case roleA). Optionally, several roles (spaces separated) can be specified\n"
+        result += "!socialmedia|social|s => Liste all linked Socialmedia accounts"
+
+        result += "```"
+
+        # send message
+        await ctx.send(result)
 
     @commands.command(aliases=['i'])
     async def info(self, ctx):
