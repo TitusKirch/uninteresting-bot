@@ -7,8 +7,8 @@ class Social(commands.Cog, name='Social'):
         self.bot = bot
         self.config = getConfig()
 
-    @commands.command(aliases=['s', 'socialmedia'])
-    async def social(self, ctx):
+    @commands.command(aliases=['s', 'social'])
+    async def socialmedia(self, ctx):
         # setup
         foundAccount = False
         result = ""
