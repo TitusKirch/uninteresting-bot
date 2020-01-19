@@ -18,8 +18,10 @@ install() {
 
 update() {
     echo "Update..."
-    git clone https://github.com/TitusKirch/uninteresting-bot.git tmp
+	cd $DIR 
+    git clone https://github.com/TitusKirch/uninteresting-bot.git --branch feat/first_release tmp
     cp -a tmp/* $DIR
+	chmod +x bot.sh
     rm -rf tmp
 }
 

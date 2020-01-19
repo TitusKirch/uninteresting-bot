@@ -34,10 +34,11 @@ In order for the software to be used properly, all [requirements](#requirements)
 ### Installing
 *At the end of this section you will find all commands in one block*
 
-Clone the repository and go to the cloned folder
+Clone the repository, go to the cloned folder and set permissions
 ```bash
 git clone https://github.com/TitusKirch/uninteresting-bot.git
 cd uninteresting-bot
+chmod +x bot.sh
 ```
 
 Copy the default configuration file
@@ -64,6 +65,7 @@ Here are all commands also in one block
 ```bash
 git clone https://github.com/TitusKirch/uninteresting-bot.git
 cd uninteresting-bot
+chmod +x bot.sh
 cp config_default.ini config.ini 
 nano config.ini 
 ./bot.sh install
