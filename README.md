@@ -3,7 +3,7 @@
     <a href="https://github.com/TitusKirch/uninteresting-bot/blob/master/LICENSE"><img src="https://img.shields.io/github/license/TitusKirch/uninteresting-bot?label=License&labelColor=30363D&color=2FBF50" alt="License"></a>
     <a href="https://github.com/TitusKirch/uninteresting-bot/releases"><img src="https://img.shields.io/github/downloads/TitusKirch/uninteresting-bot/total?label=Downloads&labelColor=30363D&color=2FBF50" alt="Downloads"></a>
     <a href="https://github.com/TitusKirch/uninteresting-bot/graphs/contributors"><img src="https://img.shields.io/github/contributors/TitusKirch/uninteresting-bot?label=Contributors&labelColor=30363D&color=2FBF50" alt="Contributors"></a>
-    <a href="https://discord.tkirch.dev"><img src="https://img.shields.io/discord/576562577769889805?label=Discord&labelColor=30363D&color=2FBF50&logoColor=959DA5&logo=Discord" alt="Discord"></a>
+    <a href="https://discord.tkirch.dev"><img src="https://img.shields.io/discord/576562577769889805?label=Discord (TKirch.dev)&labelColor=30363D&color=2FBF50&logoColor=959DA5&logo=Discord" alt="Discord (TKirch.dev)"></a>
 </p>
 
 ## Table of Contents
@@ -20,7 +20,7 @@
 * [License](#license)
 
 ## About the project
-*Coming soon*
+A self hosting Discord bot, written in Python.
 
 ## Getting Started
 In order for the software to be used properly, all [requirements](#requirements) must be met.
