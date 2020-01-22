@@ -1,9 +1,10 @@
 #!/bin/bash
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )/"
+cd $DIR
 
 start() {
     echo "Start bot..."
-	tmux new-session -d -s uninterestingBot \; send-keys /"cd $DIR ;python3 $DIR/run.py" Enter
+	tmux new-session -d -s uninterestingBot \; send-keys /"cd $DIR ;python3 run.py" Enter
 }
 
 stop() {
