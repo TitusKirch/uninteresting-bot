@@ -1,5 +1,5 @@
 import discord
-from utilities import *
+from utilities import _
 from discord.ext import commands
 
 class ExtensionsManagement(commands.Cog, name='ExtensionsManagement'):
