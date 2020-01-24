@@ -1,5 +1,6 @@
 import discord
 import logging
+import sys
 from datetime import datetime
 from utilities import getConfig
 from discord.ext import commands
@@ -31,6 +32,13 @@ class UninterestingBot(commands.AutoShardedBot):
 
         # setup client
         super().__init__(command_prefix=self.config['bot']['command_prefix'], case_insensitive=True)
+
+        # try to load extensions management extension
+        try:
+            self.load_extension('extensions.extensionsmanagement')
+        except Exception:
+            self.discordLogger.exception("Bot failed to load \"extensions management\" exception")
+            sys.exit()
     
     async def on_ready(self):
         # log logged in if logging is true
@@ -46,14 +54,14 @@ class UninterestingBot(commands.AutoShardedBot):
         # try to run bot
         try:
             # print for debug
-            print('Bot is starting')
+            print("Bot is starting")
 
             # run bot
             super().run(self.config['bot']['token'], reconnect=True)
 
         except Exception:
             # print for debug
-            print('Bot stopped')
+            print("Bot stopped")
 
             # close bot
             self.close()
