@@ -1,0 +1,37 @@
+#: extensions/extensionsmanagement.py:29 extensions/extensionsmanagement.py:47
+#, python-brace-format
+msgid "extension not loaded, {extension}"
+msgstr "\"{extension}\" was not loaded!"
+
+#: extensions/extensionsmanagement.py:31 extensions/extensionsmanagement.py:49
+#: extensions/extensionsmanagement.py:71 extensions/extensionsmanagement.py:89
+#: extensions/extensionsmanagement.py:112
+#: extensions/extensionsmanagement.py:130
+msgid "Errors"
+msgstr "Fehler"
+
+#: extensions/extensionsmanagement.py:39
+#, python-brace-format
+msgid "extension successfully loaded, {extension}"
+msgstr "\"{extension}\" was successfully loaded!"
+
+#: extensions/extensionsmanagement.py:69 extensions/extensionsmanagement.py:87
+#, python-brace-format
+msgid "extension not unloaded, {extension}"
+msgstr "\"{extension}\" was not unloaded!"
+
+#: extensions/extensionsmanagement.py:79
+#, python-brace-format
+msgid "extension successfully unloaded, {extension}"
+msgstr "\"{extension}\" was successfully unloaded!"
+
+#: extensions/extensionsmanagement.py:110
+#: extensions/extensionsmanagement.py:128
+#, python-brace-format
+msgid "extension not reloaded, {extension}"
+msgstr "\"{extension}\" was not reloaded!"
+
+#: extensions/extensionsmanagement.py:120
+#, python-brace-format
+msgid "extension successfully reloaded, {extension}"
+msgstr "\"{extension}\" was successfully reloaded!"
