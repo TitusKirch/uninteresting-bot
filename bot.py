@@ -4,7 +4,6 @@ import sys
 from datetime import datetime
 from utilities import getConfig
 from discord.ext import commands
-from models.base import Base
 from models.setting import Setting
 from models.extension import Extension
 import db
@@ -34,9 +33,6 @@ class UninterestingBot(commands.AutoShardedBot):
 
         # setup client
         super().__init__(command_prefix=self.config['bot']['command_prefix'], case_insensitive=True)
-
-        # setup database
-        Base.metadata.create_all(db.db_engine)
 
         # remove default commands
         self.remove_command('help')
