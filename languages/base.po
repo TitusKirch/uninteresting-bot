@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-24 22:16+0100\n"
+"POT-Creation-Date: 2020-01-25 01:23+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,45 +17,72 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: extensions/extensionsmanagement.py:29 extensions/extensionsmanagement.py:47
+#: extensions/extensionsmanagement.py:45 extensions/extensionsmanagement.py:63
 #, python-brace-format
 msgid "extension not loaded, {extension}"
 msgstr ""
 
-#: extensions/extensionsmanagement.py:31 extensions/extensionsmanagement.py:49
-#: extensions/extensionsmanagement.py:71 extensions/extensionsmanagement.py:89
-#: extensions/extensionsmanagement.py:112
-#: extensions/extensionsmanagement.py:130
+#: extensions/extensionsmanagement.py:47 extensions/extensionsmanagement.py:65
+#: extensions/extensionsmanagement.py:100
+#: extensions/extensionsmanagement.py:118
+#: extensions/extensionsmanagement.py:141
+#: extensions/extensionsmanagement.py:159
 msgid "Errors"
 msgstr ""
 
-#: extensions/extensionsmanagement.py:39
+#: extensions/extensionsmanagement.py:55
 #, python-brace-format
 msgid "extension successfully loaded, {extension}"
 msgstr ""
 
-#: extensions/extensionsmanagement.py:49 extensions/extensionsmanagement.py:89
-#: extensions/extensionsmanagement.py:130
+#: extensions/extensionsmanagement.py:65 extensions/extensionsmanagement.py:118
+#: extensions/extensionsmanagement.py:159
 msgid "extension blacklist"
 msgstr ""
 
-#: extensions/extensionsmanagement.py:69 extensions/extensionsmanagement.py:87
+#: extensions/extensionsmanagement.py:98 extensions/extensionsmanagement.py:116
 #, python-brace-format
 msgid "extension not unloaded, {extension}"
 msgstr ""
 
-#: extensions/extensionsmanagement.py:79
+#: extensions/extensionsmanagement.py:108
 #, python-brace-format
 msgid "extension successfully unloaded, {extension}"
 msgstr ""
 
-#: extensions/extensionsmanagement.py:110
-#: extensions/extensionsmanagement.py:128
+#: extensions/extensionsmanagement.py:139
+#: extensions/extensionsmanagement.py:157
 #, python-brace-format
 msgid "extension not reloaded, {extension}"
 msgstr ""
 
-#: extensions/extensionsmanagement.py:120
+#: extensions/extensionsmanagement.py:149
 #, python-brace-format
 msgid "extension successfully reloaded, {extension}"
+msgstr ""
+
+#: extensions/extensionsmanagement.py:171
+msgid "loaded extensions"
+msgstr ""
+
+#: extensions/extensionsmanagement.py:175
+msgid "unloaded extensions"
+msgstr ""
+
+#: extensions/extensionsmanagement.py:184
+#: extensions/extensionsmanagement.py:192
+msgid "no extensions"
+msgstr ""
+
+#: extensions/extensionsmanagement.py:184
+msgid "no extensions loaded"
+msgstr ""
+
+#: extensions/extensionsmanagement.py:192
+msgid "no extensions unloaded"
+msgstr ""
+
+#: extensions/fun.py:12
+#, python-brace-format
+msgid "dice role, {mention}, {dice}"
 msgstr ""

@@ -1,42 +1,93 @@
-#: extensions/extensionsmanagement.py:29 extensions/extensionsmanagement.py:47
+# German localization of the UninterestingBot.
+# Copyright (C) 2020 Kirch, Titus
+# This file is distributed under the same license as the UninterestingBot (https://github.com/TitusKirch/uninteresting-bot/blob/master/LICENSE).
+# Kirch, Titus <requests@tkirch.dev>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-01-25 01:14+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Kirch, Titus <requests@tkirch.dev>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: German\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: extensions/extensionsmanagement.py:45 extensions/extensionsmanagement.py:63
 #, python-brace-format
 msgid "extension not loaded, {extension}"
 msgstr "\"{extension}\" wurde nicht geladen!"
 
-#: extensions/extensionsmanagement.py:31 extensions/extensionsmanagement.py:49
-#: extensions/extensionsmanagement.py:71 extensions/extensionsmanagement.py:89
-#: extensions/extensionsmanagement.py:112
-#: extensions/extensionsmanagement.py:130
+#: extensions/extensionsmanagement.py:47 extensions/extensionsmanagement.py:65
+#: extensions/extensionsmanagement.py:100
+#: extensions/extensionsmanagement.py:118
+#: extensions/extensionsmanagement.py:141
+#: extensions/extensionsmanagement.py:159
 msgid "Errors"
 msgstr "Fehler"
 
-#: extensions/extensionsmanagement.py:39
+#: extensions/extensionsmanagement.py:55
 #, python-brace-format
 msgid "extension successfully loaded, {extension}"
 msgstr "\"{extension}\" wurde erfolgreich geladen!"
 
-#: extensions/extensionsmanagement.py:49 extensions/extensionsmanagement.py:89
-#: extensions/extensionsmanagement.py:130
+#: extensions/extensionsmanagement.py:65 extensions/extensionsmanagement.py:118
+#: extensions/extensionsmanagement.py:159
 msgid "extension blacklist"
 msgstr "Die Erweiterung steht auf der schwarzen Liste und darf nicht geladen/deaktiviert/neugeladen werden."
 
-#: extensions/extensionsmanagement.py:69 extensions/extensionsmanagement.py:87
+#: extensions/extensionsmanagement.py:98 extensions/extensionsmanagement.py:116
 #, python-brace-format
 msgid "extension not unloaded, {extension}"
 msgstr "\"{extension}\" wurde nicht deaktiviert!"
 
-#: extensions/extensionsmanagement.py:79
+#: extensions/extensionsmanagement.py:108
 #, python-brace-format
 msgid "extension successfully unloaded, {extension}"
 msgstr "\"{extension}\" wurde erfolgreich deaktiviert!"
 
-#: extensions/extensionsmanagement.py:110
-#: extensions/extensionsmanagement.py:128
+#: extensions/extensionsmanagement.py:139
+#: extensions/extensionsmanagement.py:157
 #, python-brace-format
 msgid "extension not reloaded, {extension}"
 msgstr "\"{extension}\" wurde nicht neugeladen!"
 
-#: extensions/extensionsmanagement.py:120
+#: extensions/extensionsmanagement.py:149
 #, python-brace-format
 msgid "extension successfully reloaded, {extension}"
 msgstr "\"{extension}\" wurde erfolgreich neugeladen!"
+
+#: extensions/extensionsmanagement.py:171
+#, fuzzy
+msgid "loaded extensions"
+msgstr "Geladene Erweiterungen:"
+
+#: extensions/extensionsmanagement.py:175
+#, fuzzy
+msgid "unloaded extensions"
+msgstr "Deaktivierte Erweiterungen:"
+
+#: extensions/extensionsmanagement.py:184
+#: extensions/extensionsmanagement.py:192
+#, fuzzy
+msgid "no extensions"
+msgstr "Keien Erweiterungen"
+
+#: extensions/extensionsmanagement.py:184
+#, fuzzy
+msgid "no extensions loaded"
+msgstr "Es sind keine Erweiterungen geladen!"
+
+#: extensions/extensionsmanagement.py:192
+#, fuzzy
+msgid "no extensions unloaded"
+msgstr "Es sind keine Erweiterungen deaktiviert!"
+
+#: extensions/fun.py:12
+#, python-brace-format
+msgid "dice role, {mention}, {dice}"
+msgstr "{mention}\nDer Würfel zeigt: {dice}"
