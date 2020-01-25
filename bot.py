@@ -4,8 +4,10 @@ import sys
 from datetime import datetime
 from utilities import getConfig
 from discord.ext import commands
+from models.base import Base
 from models.setting import Setting
-from db import db_session
+from models.extension import Extension
+import db
 
 class UninterestingBot(commands.AutoShardedBot):
     def __init__(self):
@@ -33,12 +35,23 @@ class UninterestingBot(commands.AutoShardedBot):
         # setup client
         super().__init__(command_prefix=self.config['bot']['command_prefix'], case_insensitive=True)
 
+        # setup database
+        Base.metadata.create_all(db.db_engine)
+
         # try to load extensions management extension
         try:
             self.load_extension('extensions.extensionsmanagement')
         except Exception:
             self.discordLogger.exception("Bot failed to load \"extensions management\" exception")
             sys.exit()
+
+        # get loaded extension and try to load them
+        extensions = Extension.loaded()
+        for extension in extensions:
+            try:
+                self.load_extension('extensions.' + extension.name)
+            except Exception:
+                self.discordLogger.exception("Bot failed to load the extension \"" + extension.name + "\"")
     
     async def on_ready(self):
         # log logged in if logging is true
@@ -68,4 +81,4 @@ class UninterestingBot(commands.AutoShardedBot):
 
             # log exception if logging is true
             if(self.config['bot']['logging'] == 'true'):
-                self.discordLogger.exception('Bot run exception')
+                self.discordLogger.exception("Bot run exception")
