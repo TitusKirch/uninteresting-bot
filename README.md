@@ -61,6 +61,11 @@ Install all requirements
 ./bot.sh update
 ```
 
+Setting up the database manually
+```bash
+alembic upgrade head
+```
+
 Here are all commands also in one block
 ```bash
 git clone https://github.com/TitusKirch/uninteresting-bot.git
