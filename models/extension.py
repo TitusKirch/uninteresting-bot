@@ -9,6 +9,7 @@ class Extension(Base):
     name = Column(String, primary_key=True)
     isLoaded = Column(Boolean, server_default=u'false')
     description = Column(Text)
+    author = Column(String, nullable=True)
 
     def __init__(self, name, isLoaded):
         self.name = name
