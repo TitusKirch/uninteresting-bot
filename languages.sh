@@ -4,7 +4,7 @@ cd $DIR
 
 update() {
     # get all textes in python files
-    find . -iname "*.py" | xargs xgettext -d base -p languages
+    find . -iname "*.py" | xargs xgettext -d base -p languages -L Python
 
     # cd to languages folder 
     cd languages/
