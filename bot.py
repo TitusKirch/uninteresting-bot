@@ -38,6 +38,9 @@ class UninterestingBot(commands.AutoShardedBot):
         # setup database
         Base.metadata.create_all(db.db_engine)
 
+        # remove default commands
+        self.remove_command('help')
+
         # try to load extensions management extension
         try:
             self.load_extension('extensions.extensionsmanagement')
