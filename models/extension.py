@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, Boolean
+from sqlalchemy import Column, String, Boolean, Text
 from models.base import Base
 import sqlalchemy
 from db import db_session
@@ -8,6 +8,7 @@ class Extension(Base):
     
     name = Column(String, primary_key=True)
     isLoaded = Column(Boolean, server_default=u'false')
+    description = Column(Text)
 
     def __init__(self, name, isLoaded):
         self.name = name
