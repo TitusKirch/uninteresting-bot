@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-25 01:14+0100\n"
+"POT-Creation-Date: 2020-01-25 01:44+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Kirch, Titus <requests@tkirch.dev>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,7 +38,8 @@ msgstr "\"{extension}\" was successfully loaded!"
 #: extensions/extensionsmanagement.py:65 extensions/extensionsmanagement.py:118
 #: extensions/extensionsmanagement.py:159
 msgid "extension blacklist"
-msgstr "The extension is on the blacklist and may not be loaded/unloaded/reloaded"
+msgstr ""
+"The extension is on the blacklist and may not be loaded/unloaded/reloaded"
 
 #: extensions/extensionsmanagement.py:98 extensions/extensionsmanagement.py:116
 #, python-brace-format
@@ -62,32 +63,61 @@ msgid "extension successfully reloaded, {extension}"
 msgstr "\"{extension}\" was successfully reloaded!"
 
 #: extensions/extensionsmanagement.py:171
-#, python-brace-format
 msgid "loaded extensions"
 msgstr "Loaded extensions:"
 
 #: extensions/extensionsmanagement.py:175
-#, python-brace-format
 msgid "unloaded extensions"
 msgstr "Unoaded extensions:"
 
 #: extensions/extensionsmanagement.py:184
 #: extensions/extensionsmanagement.py:192
-#, python-brace-format
 msgid "no extensions"
 msgstr "No extensions"
 
 #: extensions/extensionsmanagement.py:184
-#, python-brace-format
 msgid "no extensions loaded"
 msgstr "No extensions loaded!"
 
 #: extensions/extensionsmanagement.py:192
-#, python-brace-format
 msgid "no extensions unloaded"
 msgstr "No extensions unloaded!"
 
 #: extensions/fun.py:12
 #, python-brace-format
 msgid "dice role, {mention}, {dice}"
-msgstr "{mention}\nThe dice show: {dice}"
+msgstr ""
+"{mention}\n"
+"The dice show: {dice}"
+
+#: extensions/general.py:26
+msgid "information"
+msgstr "Information"
+
+#: extensions/general.py:27
+msgid "bot description"
+msgstr "The UninterestingBot is a self hosting Discord-Bot, written by Titus Kirch in Python."
+
+#: extensions/general.py:29
+msgid "website"
+msgstr "Website"
+
+#: extensions/general.py:30
+msgid "forum"
+msgstr "Forum"
+
+#: extensions/general.py:31
+msgid "lexicon"
+msgstr "Lexicon"
+
+#: extensions/general.py:32
+msgid "github repository"
+msgstr "GitHub Repository"
+
+#: extensions/general.py:33
+msgid "website tkirch"
+msgstr "Website of Titus Kirch"
+
+#: extensions/general.py:34
+msgid "discord tkirch"
+msgstr "The official discord server of Titus Kirch"

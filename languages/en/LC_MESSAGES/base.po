@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-25 01:31+0100\n"
+"POT-Creation-Date: 2020-01-25 02:02+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Kirch, Titus <requests@tkirch.dev>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: extensions/extensionsmanagement.py:45 extensions/extensionsmanagement.py:63
-#, python-brace-format
 msgid "extension not loaded, {extension}"
 msgstr "\"{extension}\" was not loaded!"
 
@@ -31,7 +30,6 @@ msgid "Errors"
 msgstr "Fehler"
 
 #: extensions/extensionsmanagement.py:55
-#, python-brace-format
 msgid "extension successfully loaded, {extension}"
 msgstr "\"{extension}\" was successfully loaded!"
 
@@ -42,23 +40,19 @@ msgstr ""
 "The extension is on the blacklist and may not be loaded/unloaded/reloaded"
 
 #: extensions/extensionsmanagement.py:98 extensions/extensionsmanagement.py:116
-#, python-brace-format
 msgid "extension not unloaded, {extension}"
 msgstr "\"{extension}\" was not unloaded!"
 
 #: extensions/extensionsmanagement.py:108
-#, python-brace-format
 msgid "extension successfully unloaded, {extension}"
 msgstr "\"{extension}\" was successfully unloaded!"
 
 #: extensions/extensionsmanagement.py:139
 #: extensions/extensionsmanagement.py:157
-#, python-brace-format
 msgid "extension not reloaded, {extension}"
 msgstr "\"{extension}\" was not reloaded!"
 
 #: extensions/extensionsmanagement.py:149
-#, python-brace-format
 msgid "extension successfully reloaded, {extension}"
 msgstr "\"{extension}\" was successfully reloaded!"
 
@@ -84,8 +78,61 @@ msgid "no extensions unloaded"
 msgstr "No extensions unloaded!"
 
 #: extensions/fun.py:12
-#, python-brace-format
 msgid "dice role, {mention}, {dice}"
 msgstr ""
 "{mention}\n"
 "The dice show: {dice}"
+
+#: extensions/general.py:15
+msgid "information"
+msgstr "Information"
+
+#: extensions/general.py:16
+msgid "bot description"
+msgstr ""
+"The UninterestingBot is a self hosting Discord-Bot, written by Titus Kirch "
+"in Python."
+
+#: extensions/general.py:18
+msgid "website"
+msgstr "Website"
+
+#: extensions/general.py:19
+msgid "forum"
+msgstr "Forum"
+
+#: extensions/general.py:20
+msgid "lexicon"
+msgstr "Lexicon"
+
+#: extensions/general.py:21
+msgid "github repository"
+msgstr "GitHub Repository"
+
+#: extensions/general.py:22
+msgid "website tkirch"
+msgstr "Website of Titus Kirch"
+
+#: extensions/general.py:23
+msgid "discord tkirch"
+msgstr "The official discord server of Titus Kirch"
+
+#: extensions/general.py:33
+msgid "help"
+msgstr "Help"
+
+#: extensions/general.py:34
+msgid "help description"
+msgstr "Here you will find an overview of all active commands"
+
+#: extensions/general.py:36
+msgid "information help"
+msgstr "Displays information about the bot"
+
+#: extensions/general.py:37
+msgid "help help"
+msgstr "Displays this text"
+
+#: extensions/general.py:40
+msgid "dice help"
+msgstr "The bot throws a die for you"

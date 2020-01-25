@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-25 01:31+0100\n"
+"POT-Creation-Date: 2020-01-25 02:02+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -85,4 +85,56 @@ msgstr ""
 #: extensions/fun.py:12
 #, python-brace-format
 msgid "dice role, {mention}, {dice}"
+msgstr ""
+
+#: extensions/general.py:15
+msgid "information"
+msgstr ""
+
+#: extensions/general.py:16
+msgid "bot description"
+msgstr ""
+
+#: extensions/general.py:18
+msgid "website"
+msgstr ""
+
+#: extensions/general.py:19
+msgid "forum"
+msgstr ""
+
+#: extensions/general.py:20
+msgid "lexicon"
+msgstr ""
+
+#: extensions/general.py:21
+msgid "github repository"
+msgstr ""
+
+#: extensions/general.py:22
+msgid "website tkirch"
+msgstr ""
+
+#: extensions/general.py:23
+msgid "discord tkirch"
+msgstr ""
+
+#: extensions/general.py:33
+msgid "help"
+msgstr ""
+
+#: extensions/general.py:34
+msgid "help description"
+msgstr ""
+
+#: extensions/general.py:36
+msgid "information help"
+msgstr ""
+
+#: extensions/general.py:37
+msgid "help help"
+msgstr ""
+
+#: extensions/general.py:40
+msgid "dice help"
 msgstr ""

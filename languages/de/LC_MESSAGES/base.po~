@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-25 01:14+0100\n"
+"POT-Creation-Date: 2020-01-25 01:44+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Kirch, Titus <requests@tkirch.dev>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,7 +38,9 @@ msgstr "\"{extension}\" wurde erfolgreich geladen!"
 #: extensions/extensionsmanagement.py:65 extensions/extensionsmanagement.py:118
 #: extensions/extensionsmanagement.py:159
 msgid "extension blacklist"
-msgstr "Die Erweiterung steht auf der schwarzen Liste und darf nicht geladen/deaktiviert/neugeladen werden."
+msgstr ""
+"Die Erweiterung steht auf der schwarzen Liste und darf nicht geladen/"
+"deaktiviert/neugeladen werden."
 
 #: extensions/extensionsmanagement.py:98 extensions/extensionsmanagement.py:116
 #, python-brace-format
@@ -62,32 +64,61 @@ msgid "extension successfully reloaded, {extension}"
 msgstr "\"{extension}\" wurde erfolgreich neugeladen!"
 
 #: extensions/extensionsmanagement.py:171
-#, python-brace-format
 msgid "loaded extensions"
 msgstr "Geladene Erweiterungen:"
 
 #: extensions/extensionsmanagement.py:175
-#, python-brace-format
 msgid "unloaded extensions"
 msgstr "Deaktivierte Erweiterungen:"
 
 #: extensions/extensionsmanagement.py:184
 #: extensions/extensionsmanagement.py:192
-#, python-brace-format
 msgid "no extensions"
 msgstr "Keine Erweiterungen"
 
 #: extensions/extensionsmanagement.py:184
-#, python-brace-format
 msgid "no extensions loaded"
 msgstr "Es sind keine Erweiterungen geladen!"
 
 #: extensions/extensionsmanagement.py:192
-#, python-brace-format
 msgid "no extensions unloaded"
 msgstr "Es sind keine Erweiterungen deaktiviert!"
 
 #: extensions/fun.py:12
 #, python-brace-format
 msgid "dice role, {mention}, {dice}"
-msgstr "{mention}\nDer Würfel zeigt: {dice}"
+msgstr ""
+"{mention}\n"
+"Der Würfel zeigt: {dice}"
+
+#: extensions/general.py:26
+msgid "information"
+msgstr "Informationen"
+
+#: extensions/general.py:27
+msgid "bot description"
+msgstr "Ein von Titus Kirch in Python geschriebener Discord-Bot zum selber hosten."
+
+#: extensions/general.py:29
+msgid "website"
+msgstr "Webseite"
+
+#: extensions/general.py:30
+msgid "forum"
+msgstr "Forum"
+
+#: extensions/general.py:31
+msgid "lexicon"
+msgstr "Lexikon"
+
+#: extensions/general.py:32
+msgid "github repository"
+msgstr "GitHub Repository"
+
+#: extensions/general.py:33
+msgid "website tkirch"
+msgstr "Webseite von Titus Kirch"
+
+#: extensions/general.py:34
+msgid "discord tkirch"
+msgstr "Der offizielle Discord-Server von Titus Kirch"
