@@ -51,19 +51,9 @@ Edit the configuration file (it is important that you add your bot token)
 nano config.ini 
 ```
 
-Install all requirements
+Update the bot
 ```bash
-./bot.sh install
-```
-
-(Optional) Update the bot
-```bash
-./bot.sh update
-```
-
-Setting up the database manually
-```bash
-alembic upgrade head
+./bot.sh update all
 ```
 
 Here are all commands also in one block
@@ -73,7 +63,7 @@ cd uninteresting-bot
 chmod +x bot.sh
 cp config_default.ini config.ini 
 nano config.ini 
-./bot.sh install
+./bot.sh update all
 ```
 
 ### Run the bot
@@ -90,8 +80,12 @@ You can start the bot with the following command
 | `./bot.sh start` | Start the bot |
 | `./bot.sh stop` | Stop the bot |
 | `./bot.sh restart` | Restart the bot |
-| `./bot.sh install` | Install all requirements |
-| `./bot.sh update` | Update the bot from this repository |
+| `./bot.sh update all` | Update the whole bot |
+| `./bot.sh update files` | Clone the bot  files from this repository|
+| `./bot.sh update requirements` | Install requirements via pip |
+| `./bot.sh update database` | Update the database |
+| `./bot.sh language update` | Update the language variable files |
+| `./bot.sh language generate` | Generate new language files |
 
 ## Contributing
 There are many ways to help this open source project. Write tutorials, improve documentation, share bugs with others, make feature requests, or just write code. We look forward to every contribution.
