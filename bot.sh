@@ -38,9 +38,15 @@ update_requirements() {
     echo "Install requirements..."
 	pip3 install -r requirements.txt
 }
+update_database() {
+    # update database
+    echo "Update database..."
+    alembic upgrade head
+}
 update_all() {
     update_clone
     update_requirements
+    update_database
 }
 language_update() {
     # get all textes in python files
@@ -123,8 +129,12 @@ if [ "$missing_package" = false ] ; then
                     stop
                     update_requirements
                 ;;
+                database)
+                    stop
+                    update_database
+                ;;
                 *)
-                    echo "Usage: $0 $1 {all|files|requirements}" >&2
+                    echo "Usage: $0 $1 {all|files|requirements|database}" >&2
                     exit 1
                     ;;
 	        esac
